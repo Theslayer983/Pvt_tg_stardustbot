@@ -10,7 +10,7 @@ API_HASH = os.environ.get("API_HASH", "2d1546542a11fe2dc961cf8cdab362d2")
 # file-based session named SESSION_NAME). On a server with no interactive
 # stdin (Render, Docker, etc.), you MUST set SESSION_STRING instead --
 # generate it once by running login_local.py on your own machine.
-SESSION_STRING = os.environ.get("SESSION_STRING", "1BVtsOLEBu8Pj-iX12T33jwQYJqD-0llt9ktwxC-ihaCvaLJUsD6CmLBinEfYDIvAmRLDsMrF__2w9XZxz3SUkW8M_fGS1njajJmlraKVZ0lUx_kkPwFJfLT3yG1FgJGlA0rurilzn9Xg-f68F7SmcZONlaEQYUCBZkJuOy2qiVpf9v_PXtXUzf0RaykA-ZSO7kfUZNvxkZ4QJQmCAlrpMHTQTlQ3I3FBgRYv_TICMOSbLS5RgjxHxww-IStRBsQizIhwDpyGHx1MSNnGyQErKPov3DUp-ppevrP-EbB2DenmvDT-o9L31F4HLGTUyMfcbEAfof93uD4Gd09B17oumSzKH-SSqjc=")
+SESSION_STRING = os.environ.get("SESSION_STRING", "1BVtsOLABu7B_daqTZlQFj4apLaz0jpjzkAgCVh7ocpvKTfCw23eHATi9QWNJzn0kKgeDMVHHQR6MUVgjZad0xuU_HXaksTH19lolEgmgiYOL1kXL2Lpvf1cBYcvu7c2kuitjsXPEhyhjwhrPBRXQXme5OXCPMq5vYy-uTRniwhXoYu1Bj7swf71Dalcsob9X1iKQA8QD9p7F2qp91M0K7tzsr6ao89kpb5LpxjtWqjTv3evw_nJEpoUmWZCjGY1VwI-vznPULYO18b4oS0XRuZrX8jEL-KMGCMpcrIi6xFWDc96MNtPlMoFirwgAZWf_z7UL8Z4thLCIiiDqEWhFSZgt82aFeOg=")
 
 # Only used for the local file-based session fallback (ignored if
 # SESSION_STRING is set).
