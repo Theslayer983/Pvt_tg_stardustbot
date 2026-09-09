@@ -20,9 +20,9 @@ SESSION_NAME = "stardust_userbot"
 #   - the bot's @username (e.g. "SkycoachBoostersBot")
 #   - a chat id (int)
 #   - "me" if it DMs you directly
-SOURCE_CHAT = os.environ.get("SOURCE_CHAT", "SkycoachBoostersBot")
+SOURCE_CHAT = os.environ.get("SOURCE_CHAT", "skycoach_boosters_notifyer_bot")
 
 # Extra safety filter: only auto-click if the message sender's username
 # matches this. Set to empty string to disable this check (not
 # recommended if the chat has other members).
-BOT_USERNAME = os.environ.get("BOT_USERNAME", "SkycoachBoostersBot")
+BOT_USERNAME = os.environ.get("BOT_USERNAME", "skycoach_boosters_notifyer_bot")
