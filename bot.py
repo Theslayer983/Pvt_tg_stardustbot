@@ -27,6 +27,7 @@ import sqlite3
 from pathlib import Path
 
 from telethon import TelegramClient, events
+from telethon.sessions import StringSession
 
 import config
 
@@ -68,7 +69,16 @@ def mark_processed(conn, order_id: str):
 async def main():
     conn = init_db()
 
-    client = TelegramClient(config.SESSION_NAME, config.API_ID, config.API_HASH)
+    if config.SESSION_STRING:
+        session = StringSession(config.SESSION_STRING)
+    else:
+        # File-based session only works when you can answer the login
+        # prompt interactively (local machine). On a server with no
+        # stdin, this WILL crash with EOFError -- run login_local.py
+        # locally first and set SESSION_STRING on the server instead.
+        session = config.SESSION_NAME
+
+    client = TelegramClient(session, config.API_ID, config.API_HASH)
 
     @client.on(events.NewMessage(chats=config.SOURCE_CHAT))
     async def handler(event):
@@ -119,7 +129,14 @@ async def main():
         log.info("Done: order %s auto-approved", order_id)
 
     log.info("Starting client, listening for stardust orders...")
-    await client.start()
+    try:
+        await client.start()
+    except EOFError:
+        raise SystemExit(
+            "No SESSION_STRING set and this environment has no interactive "
+            "stdin to log in with. Run login_local.py on your own machine "
+            "once, then set the SESSION_STRING env var on this server."
+        )
     log.info("Logged in. Watching chat: %s", config.SOURCE_CHAT)
     await client.run_until_disconnected()
 
